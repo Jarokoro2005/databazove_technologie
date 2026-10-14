@@ -1,4 +1,4 @@
-WITH ranked_items AS (
+﻿WITH ranked_items AS (
     SELECT
         invoice_no,
         stock_code,
@@ -8,7 +8,7 @@ WITH ranked_items AS (
         quantity * unit_price AS amount,
         ROW_NUMBER() OVER (
             PARTITION BY invoice_no
-            ORDER BY quantity * unit_price DESC, stock_code DESC
+            ORDER BY quantity * unit_price DESC
         ) AS row_num
     FROM retail_sales
 )
